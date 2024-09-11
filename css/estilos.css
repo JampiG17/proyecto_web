@@ -1,0 +1,177 @@
+/* Estilos Generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Estilos para el Logo */
+.logo {
+    width: 170px;
+    height: auto;
+}
+
+/* Encabezado */
+header {
+    background-color: #ff6666;
+    text-align: center;
+    padding: 10px 0;
+}
+
+header img.logo {
+    width: 150px;
+    margin: 0;
+}
+
+/* Navegación */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #ff6666;
+}
+
+/* Contenido Principal */
+main {
+    padding: 20px;
+}
+
+/* Sección de Flores */
+.flores {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.contenedor-flores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-flor {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.item-flor img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.item-flor p {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item-flor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección Sobre Nosotros */
+.sobre-nosotros {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.sobre-nosotros h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff6666;
+}
+
+.info-seccion {
+    margin-bottom: 20px;
+}
+
+.info-seccion h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info-seccion p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Pie de pagina */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.contenido-footer {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.redes-sociales {
+    display: inline-block;
+}
+
+.redes-sociales a {
+    margin: 0 10px;
+}
+
+.redes-sociales a img {
+    width: 30px;
+    transition: transform 0.2s;
+}
+
+.redes-sociales a img:hover {
+    transform: scale(1.2);
+}
+
+.pie-footer {
+    background-color: #222;
+    padding: 10px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+/* Para que se vea bien en cualquier tipo de pantalla */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        text-align: left;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+    }
+}
