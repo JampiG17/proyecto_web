@@ -1,65 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floratel - Inicio</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
+
 <body>
     <!-- Encabezado -->
     <header>
-        <img src="imagenes/FLORATEL.png" alt="Floratel" class="logo">
+        <img src="imagenes/logoo.png" alt="Floratel" class="logo">
         <nav>
             <ul>
-                <li><a href="index.html">INICIO</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li>
+                    <a href="#ocasion">OCASIONES</a>
+                    <ul class="submenu">
+                        <li><a href="cumpleaños.html">Cumpleaños</a></li>
+                        <li><a href="matrimonio.html">Matrimonio</a></li>
+                        <li><a href="dias_especiales.html">Días Especiales</a></li>
+                    </ul>
+                </li>
+                <li><a href="prime.html">PRIME</a></li>
+                <li><a href="promociones.html">PROMOCIONES</a></li>
+                <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
+                <li><a href="pagos.html">METODOS DE PAGO</a></li>
                 <li><a href="nosotros.html">NOSOTROS</a></li>
-                <li><a href="#ocasion">OCASIONES</a></li>
-                <li><a href="#recojo">RECOJO EN TIENDA</a></li>
-                <li><a href="#delivery">DELIVERY</a></li>
-                <li><a href="#prime">PRIME</a></li>
-                <li><a href="#promociones">PROMOCIONES</a></li>
+                <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
+                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Contenido Principal -->
-    <main>
-        <section class="flores">
-            <h2>Nuestras Flores</h2>
-            <div class="contenedor-flores">
-                <div class="item-flor">
-                    <img src="imagenes/rosas.jpg" alt="Rosa">
-                    <p>Rosa</p>
-                    <p>Precio: $10</p>
-                </div>
-                <div class="item-flor">
-                    <img src="imagenes/lirios.png" alt="Lirio">
-                    <p>Lirio</p>
-                    <p>Precio: $15</p>
-                </div>
-                <div class="item-flor">
-                    <img src="imagenes/orquideas.jpg" alt="Orquídea">
-                    <p>Orquídea</p>
-                    <p>Precio: $25</p>
-                </div>
-                <div class="item-flor">
-                    <img src="imagenes/tulipanes.jpg" alt="Tulipán">
-                    <p>Tulipán</p>
-                    <p>Precio: $12</p>
-                </div>
+    <!-- Banner Principal -->
+    <section class="banner">
+        <img src="imagenes/baner.jpg" alt="Banner Floratel" class="banner-img">
+        <div class="banner-texto">
+            <h1>Las Flores ccccccMás Frescas a Domicilio</h1>
+            <p>Entrega rápida y garantizada en todo Lima.</p>
+            <a href="promociones.html" class="btn-banner">Ver Promociones</a>
+        </div>
+    </section>
+
+    <!-- Nuestras Flores -->
+    <section class="flores">
+        <h2>Nuestras Flores</h2>
+        <div class="contenedor-flores">
+            <div class="item-flor">
+                <img src="imagenes/rosas.jpg" alt="Rosa">
+                <p>Rosa</p>
+                <p>Precio: $10</p>
             </div>
-        </section>
-    </main>
-    
+            <div class="item-flor">
+                <img src="imagenes/lirios.png" alt="Lirio">
+                <p>Lirio</p>
+                <p>Precio: $15</p>
+            </div>
+            <div class="item-flor">
+                <img src="imagenes/orquideas.jpg" alt="Orquídea">
+                <p>Orquídea</p>
+                <p>Precio: $25</p>
+            </div>
+            <div class="item-flor">
+                <img src="imagenes/tulipanes.jpg" alt="Tulipán">
+                <p>Tulipán</p>
+                <p>Precio: $12</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonios">
+        <h2>Lo Que Dicen Nuestros Clientes</h2>
+        <div class="contenedor-testimonios">
+            <div class="testimonio">
+                <p>"Floratel siempre tiene las flores más frescas, su servicio es excelente. Mi elección número uno para
+                    cualquier ocasión."</p>
+                <p>- María López</p>
+            </div>
+            <div class="testimonio">
+                <p>"La entrega fue súper rápida y las flores llegaron en perfecto estado. ¡Muy recomendados!"</p>
+                <p>- José García</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="servicios">
+        <h2>Servicios Destacados</h2>
+        <div class="contenedor-servicios">
+            <div class="servicio">
+                <h3>Arreglos Personalizados</h3>
+                <p>Elige y personaliza tus arreglos florales para cada ocasión especial.</p>
+            </div>
+            <div class="servicio">
+                <h3>Suscripción Floratel Prime</h3>
+                <p>Flores frescas cada semana con beneficios exclusivos para nuestros miembros Prime.</p>
+            </div>
+            <div class="servicio">
+                <h3>Flores para Eventos</h3>
+                <p>Decora tus eventos con nuestras flores seleccionadas y dale un toque especial a cada momento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes (FAQ) -->
+    <section class="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="contenedor-faq">
+            <div class="pregunta">
+                <h3>¿Realizan envíos el mismo día?</h3>
+                <p>Sí, ofrecemos envíos el mismo día dentro de Lima Metropolitana.</p>
+            </div>
+            <div class="pregunta">
+                <h3>¿Puedo personalizar un arreglo floral?</h3>
+                <p>Claro, tenemos opciones para que personalices tus arreglos a tu gusto.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="audio-section">
+        <h2>Animate un poco con musica</h2>
+        <audio controls>
+            <source src="audio/audio.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+
     <!-- Pie de pagina -->
     <footer>
         <div class="contenido-footer">
             <p>Floratel - Tu floristería de confianza desde 2020</p>
             <p>Contacto: +51 123 456 789 | Email: contacto@floratel.com</p>
             <div class="redes-sociales">
-                <a href="#"><img src="imagenes/Facebook.png" alt="Facebook" class="icono-social"></a>
-                <a href="#"><img src="imagenes/Instagram.png" alt="Instagram" class="icono-social"></a>
+                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook" class="icono-social"></a>
+                <a href="https://www.instagram.com/"><img src="imagenes/Instagram.png" alt="Instagram" class="icono-social"></a>
             </div>
         </div>
         <div class="pie-footer">
@@ -67,4 +146,5 @@
         </div>
     </footer>
 </body>
+
 </html>
