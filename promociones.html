@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promociones - Floratel</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Encabezado -->
-    <header>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Encabezado - menú -->
+    <header class="navbar">
         <img src="imagenes/logoo.png" alt="Floratel" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
-                <li>
-                    <a href="#ocasion">OCASIONES</a>
-                    <ul class="submenu">
-                        <li><a href="cumpleaños.html">Cumpleaños</a></li>
-                        <li><a href="matrimonio.html">Matrimonio</a></li>
-                        <li><a href="dias_especiales.html">Días Especiales</a></li>
-                    </ul>
-                </li>
-                <li><a href="prime.html">PRIME</a></li>
-                <li><a href="promociones.html">PROMOCIONES</a></li>
-                <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
-                <li><a href="pagos.html">METODOS DE PAGO</a></li>
-                <li><a href="nosotros.html">NOSOTROS</a></li>
-                <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
-                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
-            </ul>
-        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            <li>
+                <a href="#ocasion">OCASIONES</a>
+                <ul class="submenu">
+                    <li><a href="cumpleaños.html">Cumpleaños</a></li>
+                    <li><a href="matrimonio.html">Matrimonio</a></li>
+                    <li><a href="dias_especiales.html">Días Especiales</a></li>
+                </ul>
+            </li>
+            <li><a href="prime.html">PRIME</a></li>
+            <li><a href="promociones.html">PROMOCIONES</a></li>
+            <li><a href="pagos.html">MÉTODOS DE PAGO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
+            <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i></a></li>
+        </ul>
     </header>
 
     <!-- Banner -->
     <section class="banner-promociones">
-        <h1>Promociones Especiales</h1>
+        <br><br><br>
+        <div class="contenido-banner">
+            <img src="imagenes/ramo-rosas-blancas.jpg" alt="Ramo de flores" class="imagen-promociones">
+            <h1 class="titulo-promociones">¡Promociones Especiales!</h1>
+            <img src="imagenes/ramo-rosas-blancas.jpg" alt="Ramo de flores" class="imagen-promociones">
+        </div>
         <p>Descubre nuestras ofertas y promociones para hacer tus compras aún más especiales.</p>
+        <p class="oferta">¡Hasta un 50% de descuento en arreglos seleccionados!</p>
+        <p>Compra hoy y recibe **envío gratis** en pedidos superiores a $50.</p>
+        <button class="btn-promociones">¡Ver Promociones!</button>
     </section>
 
     <!-- Tabla de Promociones -->
@@ -53,7 +72,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td rowspan="2">Rosas</td>
+                    <td rowspan="2"><i class="fas fa-rose"></i> Rosas</td>
                     <td colspan="3">10% de Descuento en Todas las Rosas</td>
                 </tr>
                 <tr>
@@ -62,13 +81,13 @@
                     <td>En Tienda y Online</td>
                 </tr>
                 <tr>
-                    <td>Lirios</td>
+                    <td><i class="fas fa-flower"></i> Lirios</td>
                     <td>15% de Descuento</td>
                     <td>01/09/2024</td>
                     <td>30/09/2024</td>
                 </tr>
                 <tr>
-                    <td>Orquídeas</td>
+                    <td><i class="fas fa-flower"></i> Orquídeas</td>
                     <td>20% de Descuento</td>
                     <td>01/09/2024</td>
                     <td>30/09/2024</td>
@@ -76,20 +95,27 @@
             </tbody>
         </table>
     </section>
-
     <!-- Pie de pagina -->
     <footer>
         <div class="contenido-footer">
             <p>Floratel - Tu floristería de confianza desde 2020</p>
             <p>Contacto: +51 123 456 789 | Email: contacto@floratel.com</p>
+            <br>
             <div class="redes-sociales">
-                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook" class="icono-social"></a>
-                <a href="https://www.instagram.com/"><img src="imagenes/Instagram.png" alt="Instagram" class="icono-social"></a>
+                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook"
+                        class="icono-social"></a>
+                <a href="https://www.instagram.com/"><img src="imagenes/instagram.png" alt="Instagram"
+                        class="icono-social"></a>
+                <a href="https://www.tiktok.com/"><img src="imagenes/tiktok.png" alt="Tiktok" class="icono-social"></a>
             </div>
         </div>
         <div class="pie-footer">
             <p>&copy; 2024 Floratel | Todos los derechos reservados</p>
         </div>
     </footer>
+    <script src="js/scripts.js"></script>
+
+
 </body>
+
 </html>

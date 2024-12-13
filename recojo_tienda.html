@@ -1,75 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recogida en Tienda - Floratel</title>
+    <title>Recoger en Tienda - Floratel</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Pacifico&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Encabezado -->
-    <header>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Encabezado - menú -->
+    <header class="navbar">
         <img src="imagenes/logoo.png" alt="Floratel" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
-                <li>
-                    <a href="#ocasion">OCASIONES</a>
-                    <ul class="submenu">
-                        <li><a href="cumpleaños.html">Cumpleaños</a></li>
-                        <li><a href="matrimonio.html">Matrimonio</a></li>
-                        <li><a href="dias_especiales.html">Días Especiales</a></li>
-                    </ul>
-                </li>
-                <li><a href="prime.html">PRIME</a></li>
-                <li><a href="promociones.html">PROMOCIONES</a></li>
-                <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
-                <li><a href="pagos.html">METODOS DE PAGO</a></li>
-                <li><a href="nosotros.html">NOSOTROS</a></li>
-                <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
-                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
-            </ul>
-        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            <li>
+                <a href="#ocasion">OCASIONES</a>
+                <ul class="submenu">
+                    <li><a href="cumpleaños.html">Cumpleaños</a></li>
+                    <li><a href="matrimonio.html">Matrimonio</a></li>
+                    <li><a href="dias_especiales.html">Días Especiales</a></li>
+                </ul>
+            </li>
+            <li><a href="prime.html">PRIME</a></li>
+            <li><a href="promociones.html">PROMOCIONES</a></li>
+            <li><a href="pagos.html">MÉTODOS DE PAGO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
+            <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i></a></li>
+        </ul>
     </header>
 
     <!-- Banner -->
-    <section class="banner-recojo">
-        <h1>Recoge tus Flores en Tienda</h1>
-        <p>Visítanos en nuestra ubicación y recoge tu pedido rápidamente. ¡Estamos encantados de verte en nuestra tienda!</p>
+    <section class="recojo">
+        <div class="banner-recojo">
+            <h1>Recoge tus Flores en Tienda</h1>
+            <p>Disfruta de tu compra recogiendo tus flores en nuestra tienda. ¡Te esperamos!</p>
+            <!-- Información de contacto directamente en la sección -->
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <strong>Dirección:</strong><br>
+                    AV. Conquistadores 1024 Miraflore Lima - Perú
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-clock reloj-icon"></i>
+                <div class="horario -texto">
+                    <strong>Horarios de atencion:</strong><br>
+                    Lun.
+                    09:00AM - 08:00PM<br>
+                    Mar.
+                    09:00AM - 08:00PM<br>
+                    Mié.
+                    09:00AM - 08:00PM<br>
+                    Jue.
+                    09:00AM - 08:00PM<br>
+                    Vie.
+                    09:00AM - 08:00PM<br>
+                    Sáb.
+                    09:00AM - 05:00PM<br>
+                    Dom.
+                    09:00AM - 01:00PM<br>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <strong>Llámanos:</strong><br>
+                    (+51) 923 456 789
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mapa -->
+        <div class="mapa">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.2246272229494!2d-77.06215618769995!3d-12.043180360194065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86ce4601c9b%3A0x53eb8ebcaa05acb!2sPlaza%20San%20Mart%C3%ADn!5e0!3m2!1ses-419!2spe!4v1694447105362!5m2!1ses-419!2spe"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </section>
 
-    <!-- Mapa -->
-    <section class="mapa">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.2246272229494!2d-77.06215618769995!3d-12.043180360194065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86ce4601c9b%3A0x53eb8ebcaa05acb!2sPlaza%20San%20Mart%C3%ADn!5e0!3m2!1ses-419!2spe!4v1694447105362!5m2!1ses-419!2spe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section>
-
-    <!-- Instrucciones de Recogida -->
-    <section class="instrucciones-recojo">
-        <h2>Instrucciones para Recoger tu Pedido</h2>
-        <p>
-            Una vez que realices tu pedido, recibirás una confirmación con el horario de recogida. <br>
-            Cuando llegues a nuestra tienda, sigue estos pasos para un servicio rápido y eficiente:
-        </p>
-            <p>Presenta tu confirmación de pedido en la entrada.</p>
-            <p>El personal te entregará tu pedido listo para llevar.</p>
-            <p>Si tienes algún comentario o pregunta, estaremos encantados de ayudarte.</p>
-
-    </section>
+    <div class="encuentro-tambien">
+        <br><br>
+        <h2>Encuentranos también</h2>
+        <br>
+        <div class="ciudades"> <!-- Añadimos esta envoltura -->
+            <div class="ciudad">
+                <p class="nombre">Chiclayo</p>
+                <p class="direccion">Cal. Los Sauces 336<br>
+                    Urb. Santa Victoria<br>
+                    Cel. 991 955 885<br>
+                    Telf. 074 - 525 512</p>
+            </div>
+            <div class="ciudad">
+                <p class="nombre">Trujillo</p>
+                <p class="direccion">Cal. Ecuador 124<br>
+                    Urb. El Recreo<br>
+                    Cel. 94 222 1000<br>
+                    Telf. 044 - 661 442</p>
+            </div>
+            <div class="ciudad">
+                <p class="nombre">Piura</p>
+                <p class="direccion">Parque C03<br>
+                    Urb. Angamos<br>
+                    Cel. 991 994 003<br>
+                    Telf. 073 - 620 726</p>
+            </div>
+        </div>
+        <br>
+    </div>
 
     <!-- Pie de pagina -->
     <footer>
         <div class="contenido-footer">
             <p>Floratel - Tu floristería de confianza desde 2020</p>
             <p>Contacto: +51 123 456 789 | Email: contacto@floratel.com</p>
+            <br>
             <div class="redes-sociales">
-                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook" class="icono-social"></a>
-                <a href="https://www.instagram.com/"><img src="imagenes/Instagram.png" alt="Instagram" class="icono-social"></a>
+                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook"
+                        class="icono-social"></a>
+                <a href="https://www.instagram.com/"><img src="imagenes/instagram.png" alt="Instagram"
+                        class="icono-social"></a>
+                <a href="https://www.tiktok.com/"><img src="imagenes/tiktok.png" alt="Tiktok" class="icono-social"></a>
             </div>
         </div>
         <div class="pie-footer">
             <p>&copy; 2024 Floratel | Todos los derechos reservados</p>
         </div>
     </footer>
+ 
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>

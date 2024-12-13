@@ -6,48 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floratel - Nuestros Clientes</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Encabezado -->
-    <header>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Encabezado - menú -->
+    <header class="navbar">
         <img src="imagenes/logoo.png" alt="Floratel" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
-                <li>
-                    <a href="#ocasion">OCASIONES</a>
-                    <ul class="submenu">
-                        <li><a href="cumpleaños.html">Cumpleaños</a></li>
-                        <li><a href="matrimonio.html">Matrimonio</a></li>
-                        <li><a href="dias_especiales.html">Días Especiales</a></li>
-                    </ul>
-                </li>
-                <li><a href="prime.html">PRIME</a></li>
-                <li><a href="promociones.html">PROMOCIONES</a></li>
-                <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
-                <li><a href="pagos.html">METODOS DE PAGO</a></li>
-                <li><a href="nosotros.html">NOSOTROS</a></li>
-                <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
-                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
-            </ul>
-        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            <li>
+                <a href="#ocasion">OCASIONES</a>
+                <ul class="submenu">
+                    <li><a href="cumpleaños.html">Cumpleaños</a></li>
+                    <li><a href="matrimonio.html">Matrimonio</a></li>
+                    <li><a href="dias_especiales.html">Días Especiales</a></li>
+                </ul>
+            </li>
+            <li><a href="prime.html">PRIME</a></li>
+            <li><a href="promociones.html">PROMOCIONES</a></li>
+            <li><a href="pagos.html">MÉTODOS DE PAGO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
+            <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i></a></li>
+        </ul>
     </header>
 
     <!-- Contenido Principal -->
     <main>
         <section class="clientes">
+            <br><br><br><br><br>
             <h2>Algunas de las bonitas experiencias con Floratel...</h2>
-            <h3>Conoce las experiencias reales de nuestros clientes y comprueba la calidad de nuestro servicio.</h3>
+            <p>Conoce las experiencias reales de nuestros clientes y comprueba la calidad de nuestro servicio.</p>
             <h3>¡Haz tu pedido y comprueba por ti mismo!</h3>
-
             <div class="subtitulo-favoritos">
-                Los favoritos por ustedes
-
+                <h3>Los favoritos por ustedes</h3>
             </div>
-
-            <h3>Estos arreglos florales destacan por su calidad y belleza, y son los favoritos en nuestra tienda. </h3>
+            <p>Estos arreglos florales destacan por su calidad y belleza, y son los favoritos en nuestra tienda. </p>
 
             <div class="fotos">
                 <div class="foto">
@@ -72,7 +79,7 @@
             </div>
 
             <div class="subtitulo-favoritos">
-                Menciones en TikTok
+                <h3>Menciones en TikTok</h3>
             </div>
 
 
@@ -83,22 +90,31 @@
                         Tu navegador no soporta el elemento de video.
                     </video>
                 </div>
-
                 <div class="video-item">
                     <video controls>
                         <source src="videos/tiktok2.mp4" type="video/mp4">
                         Tu navegador no soporta el elemento de video.
                     </video>
                 </div>
-
                 <div class="video-item">
                     <video controls>
                         <source src="videos/tiktok3.mp4" type="video/mp4">
                         Tu navegador no soporta el elemento de video.
                     </video>
                 </div>
-
-            </div>
+                <!-- Sección para dejar comentarios -->
+                <div class="comentarios">
+                    <h2>Cuéntanos tu experiencia</h2>
+                    <p>Puedes elegir si prefieres que tu comentario sea anónimo o si deseas compartir tu nombre con nosotros.</p>
+                    <br>
+                    <textarea id="comentarioInput" placeholder="Escribe tu comentario aquí..."></textarea><br>
+                    <button class="btn-enviar" onclick="agregarComentario()">Enviar Comentario</button>
+                
+                    <div id="comentarios-lista">
+                        <!-- Los comentarios se agregarán aquí dinámicamente -->
+                    </div>
+                </div>
+                
         </section>
     </main>
 
@@ -107,15 +123,21 @@
         <div class="contenido-footer">
             <p>Floratel - Tu floristería de confianza desde 2020</p>
             <p>Contacto: +51 123 456 789 | Email: contacto@floratel.com</p>
+            <br>
             <div class="redes-sociales">
-                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook" class="icono-social"></a>
-                <a href="https://www.instagram.com/"><img src="imagenes/Instagram.png" alt="Instagram" class="icono-social"></a>
+                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook"
+                        class="icono-social"></a>
+                <a href="https://www.instagram.com/"><img src="imagenes/instagram.png" alt="Instagram"
+                        class="icono-social"></a>
+                <a href="https://www.tiktok.com/"><img src="imagenes/tiktok.png" alt="Tiktok" class="icono-social"></a>
             </div>
         </div>
         <div class="pie-footer">
             <p>&copy; 2024 Floratel | Todos los derechos reservados</p>
         </div>
     </footer>
+
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

@@ -1,69 +1,317 @@
-/* Estilos Generales */
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+
 }
 
-/* Estilos para el Logo */
-.logo {
-    width: 170px;
-    height: auto;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Pacifico;
 }
 
-/* Encabezado */
-header {
-    background-color: #ff6666;
-    text-align: center;
-    padding: 10px 0;
+p,
+a {
+    font-family: Delius;
 }
 
-header img.logo {
-    width: 150px;
-    margin: 0;
+/* Estilos del Loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FF9494;
+    /* Fondo del loader */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
 }
 
-/* Navegación */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #333;
-    text-align: center;
+/* Spinner */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-nav ul li {
-    display: inline-block;
+/* Animación del Spinner */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
+/*estilos index*/
+/* Menu */
+.navbar {
+    width: 100%;
+    background-color: #FF9494;
+    color: #fff;
     padding: 10px 20px;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav ul li a:hover {
-    background-color: #ff6666;
+.logo {
+    height: 50px;
 }
 
-/* Contenido Principal */
-main {
-    padding: 20px;
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin-left: 20px;
+    position: relative;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 10px;
+}
+
+.menu a:hover {
+    background-color: #FFE3E1;
+    color: black;
+    border-radius: 10px;
+}
+
+.menu a:hover::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin-top: 5px;
+    transition: width 0.3s ease;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #FFB6B6;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    z-index: 1001;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submenu li {
+    margin: 0;
+    text-align: left;
+}
+
+.submenu a {
+    color: #fff;
+    font-size: 0.9em;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submenu a:hover {
+    background-color: #FFE3E1;
+    color: black;
+}
+
+/* Hover para mostrar submenú */
+.menu li:hover .submenu {
+    display: block;
+}
+
+/* Icono del menú en móvil */
+.menu-icon {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #FF9494;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        z-index: 1001;
+        padding: 10px 0;
+    }
+
+    .menu li {
+        text-align: left;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu a {
+        font-size: 1.2em;
+        padding: 10px;
+        display: block;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        background-color: #FFB6B6;
+    }
+
+    .menu li.active .submenu {
+        display: block;
+    }
+
+    .menu-icon {
+        display: block;
+        color: #fff;
+    }
+}
+
+
+/* Banner principal */
+.banner {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 60px;
+    color: white;
+    overflow: hidden;
+    /* Evita desbordamiento */
+}
+
+.banner .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    /* Ajusta la altura fija inicial */
+    overflow: hidden;
+}
+
+.mySlides {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Hace que la imagen se ajuste sin deformarse */
+    display: none;
+    /* Oculta todas las imágenes inicialmente */
+}
+
+.mySlides:first-child {
+    display: block;
+    /* Muestra la primera imagen por defecto */
+}
+
+.banner-texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.banner-texto h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.banner-texto p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-banner {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-banner:hover {
+    background-color: #ff4c4c;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .banner {
+        margin-top: 60px;
+        /* Añade un margen superior general para evitar que el banner toque el menú */
+    }
+
+    .banner .slideshow-container {
+        height: 250px;
+        /* Reduce la altura en dispositivos móviles */
+    }
+
+    .banner-texto h1 {
+        font-size: 24px;
+    }
+
+    .banner-texto p {
+        font-size: 14px;
+        top: 55%;
+    }
+
+    .btn-banner {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }
 
 /* Sección de Flores */
 .flores {
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
     margin: auto;
     padding: 20px;
     text-align: center;
+    background-color: #FFE3E1;
 }
 
 .contenedor-flores {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: flex;
     gap: 30px;
     justify-content: center;
     align-items: center;
@@ -93,37 +341,467 @@ main {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Sección Sobre Nosotros */
-.sobre-nosotros {
-    padding: 20px;
-    background-color: #fff;
+
+.item-flor img {
+    width: 100%;
+    max-width: 200px;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.item-flor:hover img {
+    transform: scale(1.05);
+}
+
+
+/*carrito compras*/
+.carrito {
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    width: 300px;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+
+.titulo-carrito {
+    font-size: 1.6em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.productos-carrito {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+.productos-carrito .producto {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.productos-carrito .producto p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.total-carrito {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.acciones-carrito {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vaciar-carrito,
+.comprar-carrito {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    color: #000;
+    background-color: #FFF5E4;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.vaciar-carrito:hover,
+.comprar-carrito:hover {
+    background-color: #FFE3E1;
+}
+
+.vaciar-carrito:disabled,
+.comprar-carrito:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/*ventana flotante inicio*/
+@keyframes aparecerConDesenfoque {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0);
+    }
+}
+
+.Ventana {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    z-index: 2000;
+    display: none;
+    text-align: center;
+    opacity: 0;
+}
+
+.Ventana img {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.Ventana.mostrar {
+    display: block;
+    /* Lo hace visible */
+    animation: aparecerConDesenfoque 0.5s ease-out forwards;
+    /* Aplica la animación */
+}
+
+.Ventana .cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.Ventana .Bienvenidos h2 {
+    margin: 10px 0;
+    color: #FF9494;
+    font-size: 1.5em;
+}
+
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.cerrar img {
+    width: 25px;
+    height: 25px;
+}
+
+.Bienvenidos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+/* Capa de vista previa que aparece al pasar el mouse */
+.capa-vista-previa {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Ventana flotante (oculta por defecto) */
+.ventana-flotante {
+    position: fixed;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 10px;
     text-align: center;
 }
 
-.sobre-nosotros h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #ff6666;
-}
-
-.info-seccion {
-    margin-bottom: 20px;
-}
-
-.info-seccion h2 {
-    font-size: 1.8em;
-    color: #333;
+.ventana-flotante img {
+    max-width: 100px;
     margin-bottom: 10px;
 }
 
-.info-seccion p {
-    font-size: 1em;
+.info-flotante {
+    overflow: hidden;
+}
+
+.info-flotante h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.info-flotante p {
+    font-size: 14px;
     color: #666;
-    line-height: 1.6;
+}
+
+.info-flotante input {
+    width: 60px;
+    margin: 10px 0;
+}
+
+#agregar-carrito {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#agregar-carrito:hover {
+    background-color: #ff4b4b;
+}
+
+/* Carrito a la derecha de la pantalla */
+.carrito {
+    position: fixed;
+    right: 0;
+    /* Pegado al lado derecho */
+    top: 0;
+    /* Comienza desde la parte superior */
+    width: 300px;
+    /* Ancho del carrito */
+    height: 100%;
+    /* Altura completa de la ventana */
+    background-color: #FF9494;
+    border-left: 1px solid #ccc;
+    /* Borde izquierdo para separar del contenido */
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra para dar un efecto de profundidad */
+    display: none;
+    /* Oculto inicialmente */
+    z-index: 1000;
+    /* Para asegurarse de que esté encima de otros elementos */
+    overflow-y: auto;
+    /* Permitir desplazamiento vertical si el contenido es demasiado largo */
+}
+
+.producto {
+    margin-bottom: 10px;
+}
+
+.eliminar {
+    cursor: pointer;
+    color: red;
+}
+
+#carrito h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.producto-carrito {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#total-carrito {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+.Bienvenidos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Estilos para la sección de testimonios */
+.testimonios {
+    padding: 50px;
+    background-color: #FFE3E1;
+    text-align: center;
+}
+
+.testimonios h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.contenedor-testimonios {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.testimonio {
+    width: 45%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #FFF5E4;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonio img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.testimonio p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Animación para servicios */
+.servicios {
+    padding: 50px;
+    background: linear-gradient(to top, #FFD1D1, #FFE3E1);
+    text-align: center;
+}
+
+.servicios h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.contenedor-servicios {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.servicio {
+    width: 30%;
+    background-color: #FFF5E4;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.servicio:hover {
+    transform: scale(1.1);
+}
+
+.servicio h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ff6b6b;
+}
+
+.servicio p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* FAQ con diseño de acordeón */
+.faq {
+    padding: 50px;
+    background: linear-gradient(to top, #FFE3E1, #FFD1D1);
+    text-align: center;
+}
+
+.faq h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.contenedor-faq {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenedor-faq .pregunta {
+    width: 45%;
+    background-color: #FFF5E4;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.pregunta h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ff6b6b;
+}
+
+.pregunta p {
+    font-size: 16px;
+    color: #333;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* Mostrar respuesta al hacer clic */
+.pregunta.active p {
+    max-height: 100px;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+
+    .testimonio,
+    .pregunta {
+        width: 100%;
+    }
+
+    .servicio {
+        width: 100%;
+    }
+
+    .contenedor-faq .pregunta {
+        width: 85%;
+    }
 }
 
 /* Pie de pagina */
@@ -163,15 +841,834 @@ footer {
     font-size: 12px;
 }
 
-/* Para que se vea bien en cualquier tipo de pantalla */
+/*pagina cumpleaños*/
+/* Banner de Ocasión */
+.banner-ocasion {
+    background-color: #FF9494;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.banner-ocasion h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.banner-ocasion p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/*pagina prime*/
+/* Beneficios Prime - Tabla */
+.beneficios-prime {
+    padding: 40px;
+    text-align: center;
+    background-color: #FFE3E1;
+}
+
+.beneficios-prime h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+table th,
+table td {
+    border: 1px solid #ffffff;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #FF9494;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #FFF5E4;
+}
+
+table tr:hover {
+    background-color: #FFD1D1;
+}
+
+/* Galería Prime */
+.galeria-prime {
+    padding: 40px;
+    text-align: center;
+}
+
+.galeria-prime h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.contenedor-imagenes-prime {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.contenedor-imagenes-prime img {
+    width: 30%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-imagenes-prime img:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/*pagina promociones*/
+/*banner promociones*/
+.banner-promociones {
+    background-color: #FFE3E1; /* Fondo lila bebé */
+    text-align: center;
+}
+
+.banner-promociones h1 {
+    font-size: 2.5em;
+    color: #FF9494; /* Color del título */
+}
+
+/* Banner de Promociones */
+.banner-promociones {
+    background-color: #FFE3E1; /* Color palo rosa */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Contenedor para el título y las imágenes */
+.contenido-banner {
+    display: flex; /* Usar flexbox */
+    align-items: center; /* Alinear verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+/* Estilo para la imagen */
+.imagen-promociones {
+    width: 80px; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción */
+    margin: 0 60px; /* Aumenta el espacio horizontal entre imágenes y el título */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilo específico para el título de promociones */
+.titulo-promociones {
+    margin: 0 30px; /* Agrega más margen lateral al título */
+    font-family: 'Lobster', cursive; /* Fuente personalizada */
+    font-size: 2.5em; /* Tamaño del texto */
+    color: #FF5733; /* Color del texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Efecto de sombra */
+    margin: 0; /* Sin margen para centrarlo */
+}
+
+/* Otros estilos */
+.oferta {
+    font-weight: bold; /* Negrita para la oferta */
+    font-size: 1.2em; /* Tamaño de la fuente de la oferta */
+}
+
+.btn-promociones {
+    background-color: #FF9494; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1em; /* Tamaño de la fuente */
+    cursor: pointer; /* Cursor de puntero al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.btn-promociones:hover {
+    background-color: #FFF5E4;
+    color: #000; /* Color del botón al pasar el mouse */
+}
+
+.oferta {
+    font-size: 1.5em;
+    color: #FF9494;
+    font-weight: bold;
+}
+
+.banner-promociones p {
+    margin: 10px 0; /* Espaciado entre párrafos */
+}
+
+/* Sección de Tabla */
+.tabla-promociones {
+    padding: 40px;
+    text-align: center;
+    background-color: #FFE3E1; /* Color de fondo para toda la sección */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+/* Estilo para los iconos en la tabla */
+.tabla-promociones i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+    color: #FF5733; /* Color del icono */
+    font-size: 1.2em; /* Tamaño del icono */
+}
+
+/* Título de la tabla (opcional) */
+.table-title {
+    font-size: 28px; /* Tamaño del título */
+    color: #FF5733; /* Color del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/*pagina pagos*/
+/* Contenedor principal de métodos de pago */
+.main-container-pago {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #FFE3E1;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de métodos de pago */
+.container-pago {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.container-pago h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #FF6B6B;
+    text-align: center;
+}
+
+/* Método de pago individual */
+.payment-method-pago {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #FFF5E4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.payment-method-pago:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del método de pago */
+.payment-method-pago img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+/* Información del método de pago */
+.payment-info-pago {
+    flex: 1;
+}
+
+.payment-info-pago label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.payment-info-pago p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Imagen lateral */
+.side-image-pago {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-image-pago img {
+    background-color: #FFF5E4;
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*pagina nosotros*/
+/* Contenedor Principal */
+.main-container-nosotros {
+    padding: 40px 20px;
+    margin: auto;
+    background-color: #FFE3E1;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.header-nosotros {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-nosotros h1 {
+    font-size: 36px;
+    color: #FF6B6B;
+    margin-bottom: 10px;
+}
+
+.header-nosotros p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Sección de Información */
+.content-container-nosotros {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Sección Individual */
+.info-section-nosotros {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.text-container-nosotros {
+    flex: 1;
+}
+
+.text-container-nosotros h2 {
+    font-size: 28px;
+    color: #FF6B6B;
+    margin-bottom: 10px;
+}
+
+.text-container-nosotros p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.image-container-nosotros {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container-nosotros .responsive-img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividad */
 @media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        text-align: left;
+    .info-section-nosotros {
+        flex-direction: column;
     }
 
-    nav ul li a {
-        display: block;
+}
+
+/*clientes*/
+/* Sección Clientes */
+.clientes {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFE3E1;
+}
+
+.clientes h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.clientes h3 {
+    font-size: 1.2em;
+    color: #272727;
+
+}
+
+.subtitulo-favoritos {
+    font-size: 1.5em;
+    font-weight: bold;
+    /*negrita*/
+    background-color: #FFF5E4;
+    color: rgb(228, 228, 228);
+    padding: 10px;
+    width: 90%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    /* Debajo del cuadro de text */
+    display: inline-block;
+    /* Ajusta el ancho al contenido */
+    margin-top: 50px;
+}
+
+
+/* Estilos para el contenedor de fotos */
+.fotos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    /* Espacio entre las fotos */
+    margin-top: 20px;
+}
+
+/* Estilo para cada foto */
+.foto {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    /*sombrita*/
+    text-align: center;
+    max-width: 200px;
+    /* Limite ancho*/
+}
+
+.foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.foto h4 {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #1f1f1f;
+}
+
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    /* Espacio entre*/
+    justify-content: center;
+    /* Centra los videos en el contenedor */
+    margin-top: 20px;
+}
+
+.video-item {
+    background-color: #fff;
+    padding: 21px;
+    /* Espacio interno */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    /*sombrita*/
+    max-width: 275px;
+    /* Tamaño máximo*/
+    width: 100%;
+    text-align: center;
+}
+
+.video-item video {
+    width: 100%;
+    height: auto;
+    /* Mantiene la proporción del video */
+    border-radius: 4px;
+}
+
+
+/* Estilos para la sección de comentarios en cliente------------------------------*/
+/* Estilos para el área de comentarios */
+.comentarios {
+    max-width: 1200px;
+    margin: 30px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #FF9494;
+}
+
+.comentarios h2 {
+    font-size: 1.9em;
+    margin-bottom: 10px;
+    color:#FF9494
+
+}
+
+.comentarios h3 {
+    margin: 20px;
+    
+}
+
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FF9494;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #FFF5E4;
+    color: #000;
+    transform: scale(1.02);
+}
+
+
+
+#comentarios-lista {
+    
+    margin-top: 20px;
+}
+
+/* Estilo para cada comentario */
+.comentario-item {
+    background-color: hsla(353, 100%, 84%, 0.67);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    
+}
+
+.comentario-item p {
+    font-size: 1.1em;
+    color: #040404;
+    align-items: flex-start
+    text-align left;
+}
+
+.comentario-item p::before {
+    font-weight: bold;
+    color: #dc0058;
+    
+}
+
+
+
+/* Estilos específicos para la página de Recogida en Tienda */
+.recojo {
+    width: 100%; /* Hace que el contenido ocupe el ancho completo */
+    margin-bottom: 0; /* Asegura que no haya espacio adicional debajo de esta sección */
+    display:flex;
+    justify-content: space-between;
+    position: relative;
+    top: 60px;
+    padding: 50px;
+    background-color: #FFE3E1;
+    align-items: center;
+}
+
+.banner-recojo {
+    width: 70%;
+    max-width: 600px;
+    padding-left: 20px; /* Espacio interno a la izquierda */
+    padding-right: 20px; /* Espacio interno a la derecha, opcional */
+    text-align: left;
+}
+
+
+.banner-recojo h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff8181;
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-item i {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #ff6f61;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.reloj-icon {
+    float: left;
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+    font-size: 24px; /* Ajusta el tamaño del ícono */
+}
+.horario-texto {
+    display: inline-block; /* Asegura que el texto esté alineado horizontalmente */
+}
+
+.contact-item div {
+    font-size: 18px;
+    color: #333;
+}
+
+.mapa {
+    width: 60%; /* El mapa ocupa todo el ancho disponible */
+    padding: 0;
+      
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 455px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Nueva sección Encuentro también */
+.encuentro-tambien {
+    margin-top: 40px; /* Espacio arriba del título */
+    text-align: center;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    background-color: #FFE3E1;
+}
+
+.ciudades {
+    display: flex; /* Flexbox para alinear las ciudades en fila */
+    justify-content: space-around; /* Añade espacio entre las ciudades */
+    gap: 30px; /* Espacio entre cada ciudad */
+    flex-wrap: nowrap; /* Evita que las ciudades se apilen si no hay espacio */
+    width: 100%; /* Asegura que ocupe todo el ancho del padre */
+}
+
+.ciudad {
+    flex: 1; /* Permite que cada ciudad ocupe el mismo espacio */
+    text-align: center; /* Centra el texto dentro de cada ciudad */
+    max-width: 25%; /* Limita el tamaño máximo de cada ciudad */
+    padding: 10px;
+    box-sizing: border-box; /* Incluye el padding en el tamaño total del elemento */
+}
+
+.nombre {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ff8181; /* Color de fondo solo para el nombre de la ciudad */
+    color: white; /* Color de texto blanco */
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.direccion {
+    font-size: 14px;
+    color: #000000; /* Color gris para la dirección */
+    margin-top: 8px;
+}
+
+
+/*Estilos para el apartado de Contacto ---------------------------------------------------------------------*/
+.contacto {
+    display: flex;
+    flex-direction: column;  /* Cambiar la dirección a columna */
+    justify-content: center;  /* Centrar el contenido verticalmente */
+    align-items: center;  /* Centrar el contenido horizontalmente */
+    padding: 90px;
+    color: #000000;
+    height: 70vh;
+}
+    
+
+.contacto h2 {
+    font-size: 2.7em; /* Tamaño de la fuente aumentado */
+    color: #000; /* Color rojo */
+    text-align: center; /* Alineación centrada */
+    border-bottom: 4px solid #FFF5E4; /* Línea inferior destacada */
+    padding-bottom: 10px; /* Espacio entre el texto y la línea */
+    
+
+}
+
+.contacto h3 {
+    font-size: 1.2em; /* Tamaño de la fuente aumentado */
+    color: #000000; /* Color rojo */
+    text-align: center; /* Alineación centrada */
+    
+    padding-bottom: 10px; /* Espacio entre el texto y la línea */
+
+}
+
+.mensaje {
+    text-align: center;
+    font-size: 1em; /* Tamaño de fuente más grande */
+    color: #333;
+    margin-bottom: 10px; /* Reduce el espacio inferior */
+}
+
+.formulario {
+    background: rgba(255, 255, 255, 0.548);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 10px; /* Reduce el margen superior */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo label {
+    width: 30%; /* Ancho del label */
+    margin-right: 5px; /* Espacio entre label y input */
+    color: #000000;
+    font-weight: bold; 
+    font-family: Pacifico;
+    font-size: 1.1em;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo textarea {
+    flex: 1; /* Ocupa todo el espacio restante */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.campo textarea {
+    resize: vertical; /* Permite redimensionar solo verticalmente */
+}
+
+input[type="submit"] {
+    background-color: #FF9494;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #FFF5E4;
+    color: #000;
+}
+
+/* Estilos para el Modal */
+.modal {
+    display: none; 
+    position: fixed;  /* Asegura que el modal quede fijo en la pantalla */
+    z-index: 1000;  /* Lo coloca por encima del contenido */
+    left: 0;
+    top: 0; 
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);  /* Fondo semi-transparente */
+    padding: 20px 0;
+    overflow: auto;  /* Permite desplazamiento si el contenido es grande */
+    font-size: large;
+}
+
+/* Contenido del Modal */
+
+.modal-content {
+    z-index: 1010; /* Asegura que el contenido del modal esté por encima del fondo */
+    background-color: #fff6f6;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;  /* Ancho máximo del modal */
+    width: 85%;  /* El modal tendrá un ancho dinámico */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 154, 154, 0.3);  /* Sombra suave */
+    font-family: 'Arial', sans-serif; /* Fuente consistente con el resto de la página */
+}
+
+/* Título dentro del modal */
+.modal-content h2 {
+    color: #000;  /* Color rojo */
+    font-size: 2.5em;  /* Tamaño del título */
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;  /* Espaciado entre letras */
+    font-family: 'Arial', sans-serif; /* Asegura que el título también use la misma fuente */
+}
+
+/* Texto dentro del modal */
+.modal-content p {
+    color: #333;  /* Color suave para el texto */
+    font-size: 1.2em;  /* Tamaño adecuado para texto */
+    line-height: 1.6;  /* Espaciado entre líneas */
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;  /* Fuente consistente con el resto de la página */
+}
+
+/* Botón que abre el modal */
+.modal-btn {
+    background-color: #FFD1D1;  /* Color rojo brillante */
+    color: #000;
+    border: none;
+    margin: 20px;
+    padding: 15px 30px;  /* Tamaño de padding */
+    font-size: 1.7em;  /* Tamaño de la fuente */
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;  /* Bordes redondeados */
+    transition: all 0.3s ease-in-out;  /* Transición suave */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);  /* Sombra sutil */
+    font-family: Pacifico; /* Fuente predeterminada */
+}
+
+/* Efecto Hover para el botón */
+.modal-btn:hover {
+    transform: scale(1.1);  /* Aumenta el tamaño del botón al 110% */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);  /* Sombra sutil cuando el botón se agranda */
+}
+
+/* Estilo para el botón de cerrar el modal */
+.close {
+    color: #aaa;
+    font-size: 2em;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    .contacto {
         padding: 10px;
     }
+
 }

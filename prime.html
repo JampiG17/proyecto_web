@@ -1,49 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime - Floratel</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Pacifico&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Encabezado -->
-    <header>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Encabezado - menú -->
+    <header class="navbar">
         <img src="imagenes/logoo.png" alt="Floratel" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
-                <li>
-                    <a href="#ocasion">OCASIONES</a>
-                    <ul class="submenu">
-                        <li><a href="cumpleaños.html">Cumpleaños</a></li>
-                        <li><a href="matrimonio.html">Matrimonio</a></li>
-                        <li><a href="dias_especiales.html">Días Especiales</a></li>
-                    </ul>
-                </li>
-                <li><a href="prime.html">PRIME</a></li>
-                <li><a href="promociones.html">PROMOCIONES</a></li>
-                <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
-                <li><a href="pagos.html">METODOS DE PAGO</a></li>
-                <li><a href="nosotros.html">NOSOTROS</a></li>
-                <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
-                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
-            </ul>
-        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            <li>
+                <a href="#ocasion">OCASIONES</a>
+                <ul class="submenu">
+                    <li><a href="cumpleaños.html">Cumpleaños</a></li>
+                    <li><a href="matrimonio.html">Matrimonio</a></li>
+                    <li><a href="dias_especiales.html">Días Especiales</a></li>
+                </ul>
+            </li>
+            <li><a href="prime.html">PRIME</a></li>
+            <li><a href="promociones.html">PROMOCIONES</a></li>
+            <li><a href="pagos.html">MÉTODOS DE PAGO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
+            <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i></a></li>
+        </ul>
     </header>
 
     <!-- Contenido Principal -->
     <main>
-        <section class="banner-prime">
-            <h1>¡Únete a Floratel Prime!</h1>
-            <p>Disfruta de beneficios exclusivos, entregas rápidas y descuentos especiales solo para miembros Prime.</p>
+        <!-- Banner Principal -->
+        <section class="banner">
+            <div class="slideshow-container">
+                <!-- Imagenes del Slideshow -->
+                <img class="mySlides fade" src="imagenes/banners/banner4.png" alt="banner 1">
+                <img class="mySlides fade" src="imagenes/banners/banner5.png" alt="banner 2">
+                <img class="mySlides fade" src="imagenes/banners/banner6.png" alt="banner 3">
+            </div>
+
+            <div class="banner-texto">
+                <h1>Disfruta de Floratel Prime</h1>
+                <br><br>
+                <a href="promociones.html" class="btn-banner">Ver Promociones</a>
+            </div>
         </section>
 
-        <!-- Imagen destacada -->
-        <section class="imagen-principal">
-            <img src="imagenes/baner.jpg" alt="Beneficios de Floratel Prime" class="imagen-principal">
-        </section>
+
+
 
         <!-- Tabla de Beneficios -->
         <section class="beneficios-prime">
@@ -92,14 +112,20 @@
         <div class="contenido-footer">
             <p>Floratel - Tu floristería de confianza desde 2020</p>
             <p>Contacto: +51 123 456 789 | Email: contacto@floratel.com</p>
+            <br>
             <div class="redes-sociales">
-                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook" class="icono-social"></a>
-                <a href="https://www.instagram.com/"><img src="imagenes/Instagram.png" alt="Instagram" class="icono-social"></a>
+                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook"
+                        class="icono-social"></a>
+                <a href="https://www.instagram.com/"><img src="imagenes/instagram.png" alt="Instagram"
+                        class="icono-social"></a>
+                <a href="https://www.tiktok.com/"><img src="imagenes/tiktok.png" alt="Tiktok" class="icono-social"></a>
             </div>
         </div>
         <div class="pie-footer">
             <p>&copy; 2024 Floratel | Todos los derechos reservados</p>
         </div>
     </footer>
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>

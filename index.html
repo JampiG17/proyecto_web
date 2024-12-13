@@ -4,94 +4,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floratel - Inicio</title>
+    <title>Floratel</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Encabezado -->
-    <header>
-        <img src="imagenes/logoo.png" alt="Floratel" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
-                <li>
-                    <a href="#ocasion">OCASIONES</a>
-                    <ul class="submenu">
-                        <li><a href="cumpleaños.html">Cumpleaños</a></li>
-                        <li><a href="matrimonio.html">Matrimonio</a></li>
-                        <li><a href="dias_especiales.html">Días Especiales</a></li>
-                    </ul>
-                </li>
-                <li><a href="prime.html">PRIME</a></li>
-                <li><a href="promociones.html">PROMOCIONES</a></li>
-                <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
-                <li><a href="pagos.html">METODOS DE PAGO</a></li>
-                <li><a href="nosotros.html">NOSOTROS</a></li>
-                <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
-                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
-            </ul>
-        </nav>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+    
+
+    <!-- Encabezado - menú -->
+    <header class="navbar">
+        <img src="imagenes/FlorLogo1.png" alt="Floratel" class="logo">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            <li>
+                <a href="#ocasion">OCASIONES</a>
+                <ul class="submenu">
+                    <li><a href="cumpleaños.html">Cumpleaños</a></li>
+                    <li><a href="matrimonio.html">Matrimonio</a></li>
+                    <li><a href="dias_especiales.html">Días Especiales</a></li>
+                </ul>
+            </li>
+            <li><a href="prime.html">PRIME</a></li>
+            <li><a href="promociones.html">PROMOCIONES</a></li>
+            <li><a href="pagos.html">MÉTODOS DE PAGO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
+            <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i></a></li>
+        </ul>
     </header>
 
     <!-- Banner Principal -->
     <section class="banner">
-        <img src="imagenes/baner.jpg" alt="Banner Floratel" class="banner-img">
+        <div class="slideshow-container">
+            <!-- Imagenes del Slideshow -->
+            <img class="mySlides fade" src="imagenes/banners/banner1.png" alt="banner 1">
+            <img class="mySlides fade" src="imagenes/banners/banner2.png" alt="banner 2">
+            <img class="mySlides fade" src="imagenes/banners/banner3.png" alt="banner 3">
+        </div>
+
         <div class="banner-texto">
-            <h1>Las Flores ccccccMás Frescas a Domicilio</h1>
+            <h1>Las Flores Más Frescas a Domicilio</h1>
             <p>Entrega rápida y garantizada en todo Lima.</p>
+            <br>
             <a href="promociones.html" class="btn-banner">Ver Promociones</a>
         </div>
     </section>
 
     <!-- Nuestras Flores -->
     <section class="flores">
-        <h2>Nuestras Flores</h2>
+        <br>
+        <h2 style="font-size: 40px;">Nuestras Flores</h2>
+        <br><br>
         <div class="contenedor-flores">
-            <div class="item-flor">
+            <div class="item-flor"
+                onclick="mostrarVentanaFlotante('imagenes/rosas.jpg', 'Rosa', 'Detalles sobre las rosas', 10)"
+                onmouseover="mostrarCapaVistaPrevia(this)" onmouseout="ocultarCapaVistaPrevia(this)">
                 <img src="imagenes/rosas.jpg" alt="Rosa">
                 <p>Rosa</p>
                 <p>Precio: $10</p>
+                <div class="capa-vista-previa">Vista previa</div>
             </div>
-            <div class="item-flor">
+
+            <div class="item-flor"
+                onclick="mostrarVentanaFlotante('imagenes/lirios.png', 'Lirio', 'Detalles sobre los lirios', 15)"
+                onmouseover="mostrarCapaVistaPrevia(this)" onmouseout="ocultarCapaVistaPrevia(this)">
                 <img src="imagenes/lirios.png" alt="Lirio">
                 <p>Lirio</p>
                 <p>Precio: $15</p>
+                <div class="capa-vista-previa">Vista previa</div>
             </div>
-            <div class="item-flor">
+
+            <div class="item-flor"
+                onclick="mostrarVentanaFlotante('imagenes/orquideas.jpg', 'Orquídea', 'Detalles sobre las orquídeas', 25)"
+                onmouseover="mostrarCapaVistaPrevia(this)" onmouseout="ocultarCapaVistaPrevia(this)">
                 <img src="imagenes/orquideas.jpg" alt="Orquídea">
                 <p>Orquídea</p>
                 <p>Precio: $25</p>
+                <div class="capa-vista-previa">Vista previa</div>
             </div>
-            <div class="item-flor">
+
+            <div class="item-flor"
+                onclick="mostrarVentanaFlotante('imagenes/tulipanes.jpg', 'Tulipán', 'Detalles sobre los tulipanes', 12)"
+                onmouseover="mostrarCapaVistaPrevia(this)" onmouseout="ocultarCapaVistaPrevia(this)">
                 <img src="imagenes/tulipanes.jpg" alt="Tulipán">
                 <p>Tulipán</p>
                 <p>Precio: $12</p>
+                <div class="capa-vista-previa">Vista previa</div>
             </div>
         </div>
     </section>
 
+    <!-- Ventana flotante de inicio -->
+    <div id="vent" class="Ventana" style="display: none;">
+        <div class="cerrar" onclick="cerrarVentanaInicio()">
+            <img src="imagenes/Cerrar X.png" alt="Cerrar">
+        </div>
+        <div class="Bienvenidos">
+            <h2>¡Bienvenidos a Floratel!</h2>
+        </div>
+        <img src="imagenes/imgFloratel.png" alt="Bienvenidos">
+    </div>
+
+
+    <!-- Ventana derecha carritos -->
+    <div id="carrito" class="carrito">
+        <h3>Carrito de Compras</h3>
+        <br>
+        <hr><br>
+        <div id="productos-carrito" class="productos-carrito"></div>
+        <div id="total-carrito" class="total-carrito">Total: $0.00</div>
+        <button id="vaciar-carrito" class="vaciar-carrito">Vaciar Carrito</button>
+    </div>
+
+    <!-- Ventana flotante para detalles del producto -->
+    <div id="ventana-flotante" class="ventana-flotante">
+        <span class="cerrar" onclick="cerrarVentana()">X</span>
+        <img id="imagen-flotante" src="" alt="Imagen del Producto">
+        <div class="info-flotante">
+            <h3 id="nombre-flotante">Nombre del Producto</h3>
+            <p id="detalles-flotante">Detalles del Producto</p>
+            <p id="precio-flotante">Precio: $0</p>
+            <input id="cantidad" type="number" value="1" min="1">
+            <button id="agregar-carrito" onclick="agregarAlCarrito()">Agregar al Carrito</button>
+        </div>
+    </div>
+
     <!-- Testimonios -->
     <section class="testimonios">
-        <h2>Lo Que Dicen Nuestros Clientes</h2>
+        <h2 style="font-size: 40px;">Lo Que Dicen Nuestros Clientes</h2>
+        <br>
         <div class="contenedor-testimonios">
             <div class="testimonio">
+                <img src="imagenes/clienta1.jpg" alt="María López">
                 <p>"Floratel siempre tiene las flores más frescas, su servicio es excelente. Mi elección número uno para
                     cualquier ocasión."</p>
-                <p>- María López</p>
+                <p>- Encanto Rosado</p>
             </div>
             <div class="testimonio">
+                <img src="imagenes/clienta2.jpg" alt="José García">
                 <p>"La entrega fue súper rápida y las flores llegaron en perfecto estado. ¡Muy recomendados!"</p>
-                <p>- José García</p>
+                <p>- Primavera</p>
             </div>
         </div>
     </section>
 
     <!-- Servicios Destacados -->
     <section class="servicios">
-        <h2>Servicios Destacados</h2>
+        <h2 style="font-size: 40px;">Servicios Destacados</h2>
         <div class="contenedor-servicios">
             <div class="servicio">
                 <h3>Arreglos Personalizados</h3>
@@ -110,41 +181,44 @@
 
     <!-- Preguntas Frecuentes (FAQ) -->
     <section class="faq">
-        <h2>Preguntas Frecuentes</h2>
+        <h2 style="font-size: 40px;">Preguntas Frecuentes</h2>
         <div class="contenedor-faq">
             <div class="pregunta">
-                <h3>¿Realizan envíos el mismo día?</h3>
-                <p>Sí, ofrecemos envíos el mismo día dentro de Lima Metropolitana.</p>
+                <h3>¿Realizan envíos fuera de Lima?</h3>
+                <p>No, actualmente solo realizamos envíos en Lima.</p>
             </div>
             <div class="pregunta">
-                <h3>¿Puedo personalizar un arreglo floral?</h3>
-                <p>Claro, tenemos opciones para que personalices tus arreglos a tu gusto.</p>
+                <h3>¿Puedo personalizar un arreglo?</h3>
+                <p>¡Por supuesto! Contáctanos para más información sobre arreglos personalizados.</p>
+            </div>
+            <div class="pregunta">
+                <h3>¿Cómo me suscribo a Floratel Prime?</h3>
+                <p>Visita nuestra sección Prime para registrarte y disfrutar de beneficios exclusivos.</p>
             </div>
         </div>
     </section>
 
-    <section class="audio-section">
-        <h2>Animate un poco con musica</h2>
-        <audio controls>
-            <source src="audio/audio.mp3" type="audio/mpeg">
-        </audio>
-    </section>
-
-
-    <!-- Pie de pagina -->
+    <!-- Pie de Página -->
     <footer>
         <div class="contenido-footer">
             <p>Floratel - Tu floristería de confianza desde 2020</p>
             <p>Contacto: +51 123 456 789 | Email: contacto@floratel.com</p>
+            <br>
             <div class="redes-sociales">
-                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook" class="icono-social"></a>
-                <a href="https://www.instagram.com/"><img src="imagenes/Instagram.png" alt="Instagram" class="icono-social"></a>
+                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook"
+                        class="icono-social"></a>
+                <a href="https://www.instagram.com/"><img src="imagenes/instagram.png" alt="Instagram"
+                        class="icono-social"></a>
+                <a href="https://www.tiktok.com/"><img src="imagenes/tiktok.png" alt="Tiktok" class="icono-social"></a>
             </div>
         </div>
         <div class="pie-footer">
             <p>&copy; 2024 Floratel | Todos los derechos reservados</p>
         </div>
     </footer>
+
+
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

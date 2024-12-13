@@ -6,67 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floratel - Contacto</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Encabezado -->
-    <header>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Encabezado - menú -->
+    <header class="navbar">
         <img src="imagenes/logoo.png" alt="Floratel" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
-                <li>
-                    <a href="#ocasion">OCASIONES</a>
-                    <ul class="submenu">
-                        <li><a href="cumpleaños.html">Cumpleaños</a></li>
-                        <li><a href="matrimonio.html">Matrimonio</a></li>
-                        <li><a href="dias_especiales.html">Días Especiales</a></li>
-                    </ul>
-                </li>
-                <li><a href="prime.html">PRIME</a></li>
-                <li><a href="promociones.html">PROMOCIONES</a></li>
-                <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
-                <li><a href="pagos.html">METODOS DE PAGO</a></li>
-                <li><a href="nosotros.html">NOSOTROS</a></li>
-                <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
-                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
-            </ul>
-        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            <li>
+                <a href="#ocasion">OCASIONES</a>
+                <ul class="submenu">
+                    <li><a href="cumpleaños.html">Cumpleaños</a></li>
+                    <li><a href="matrimonio.html">Matrimonio</a></li>
+                    <li><a href="dias_especiales.html">Días Especiales</a></li>
+                </ul>
+            </li>
+            <li><a href="prime.html">PRIME</a></li>
+            <li><a href="promociones.html">PROMOCIONES</a></li>
+            <li><a href="pagos.html">MÉTODOS DE PAGO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="clientes.html">NUESTROS CLIENTES</a></li>
+            <li><a href="recojo_tienda.html"><i class="fa-solid fa-location-dot"></i></a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i></a></li>
+        </ul>
     </header>
 
     <!-- Contenido Principal -->
     <main>
-        <!--Formulario de Contacto-->
-        <section class="contacto">
-            <h2>Contactate con Nosotros</h2>
-            <h3>En esta sección puede ponerse en contacto con el equipo de Floratel para consultas generales,
-                comentarios o preguntas.</h3>
-            <h3>Tus comentarios nos ayudan a mejorar y seguir creciendo...</h3>
+        <section class="contacto" style="background: url('imagenes/fondofor.jpg') no-repeat center center fixed;">
+            <div class="mensaje">
+                <br><br>
+                <h2>Contactate con Nosotros</h2>
+                <br><br>
+                <p>En esta sección puede ponerse en contacto con el equipo de Floratel, click abajo para saber más...
+                </p>
+            </div>
 
-            <form action="gracias.html" method="POST">
+            <!-- Botón para abrir el modal -->
+            <button id="modalBtn" class="modal-btn">¿Qué comentarios puedes enviarnos?</button>
 
-                <label for="nombre">Nombre:</label><br>
-                <input type="text" id="nombre" name="nombre" pattern="[A-Za-z ]+"
-                    title="Solo se permiten letras y espacios" required><br><br>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>¡Gracias por tu interés! Puedes enviarnos comentarios sobre:</p>
+                    <ul>
+                        <li>La calidad de nuestros productos</li>
+                        <li>La atención al cliente</li>
+                        <li>Ideas para nuevas colecciones</li>
+                        <li>Cualquier sugerencia para mejorar nuestro servicio</li>
+                    </ul>
+                </div>
+            </div>
 
-                <label for="email">Correo Electrónico:</label> <br>
-                <input type="email" id="email" name="email" required><br><br>
+            <form action="gracias.html" method="POST" class="formulario">
 
-                <label for="telefono">Teléfono:</label><br>
-                <input type="tel" id="telefono" name="telefono" pattern="\d{1,9}"
-                    title="Solo se permiten números con un máximo de 9 dígitos" required><br><br>
-
-                <label for="asunto">Asunto:</label> <br>
-                <input type="text" id="asunto" name="asunto" required><br><br>
-
-                <label for="message">Mensaje:</label> <br>
-                <textarea id="message" name="message" rows="5" required></textarea><br><br>
-
-
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="campo">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="campo">
+                    <label for="asunto">Asunto:</label>
+                    <input type="text" id="asunto" name="asunto" required>
+                </div>
+                <div class="campo">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
                 <input type="submit" value="Enviar">
             </form>
-
         </section>
     </main>
 
@@ -75,15 +104,22 @@
         <div class="contenido-footer">
             <p>Floratel - Tu floristería de confianza desde 2020</p>
             <p>Contacto: +51 123 456 789 | Email: contacto@floratel.com</p>
+            <br>
             <div class="redes-sociales">
-                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook" class="icono-social"></a>
-                <a href="https://www.instagram.com/"><img src="imagenes/Instagram.png" alt="Instagram" class="icono-social"></a>
+                <a href="https://www.facebook.com/"><img src="imagenes/Facebook.png" alt="Facebook"
+                        class="icono-social"></a>
+                <a href="https://www.instagram.com/"><img src="imagenes/instagram.png" alt="Instagram"
+                        class="icono-social"></a>
+                <a href="https://www.tiktok.com/"><img src="imagenes/tiktok.png" alt="Tiktok" class="icono-social"></a>
             </div>
         </div>
         <div class="pie-footer">
             <p>&copy; 2024 Floratel | Todos los derechos reservados</p>
         </div>
     </footer>
+
+    <script src="js/scripts.js"></script>
+
 </body>
 
 </html>
